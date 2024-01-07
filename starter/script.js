@@ -93,34 +93,75 @@ var includeSpecial
 var includeNumeric
 var includeLower
 var includeUpper
-var allNumbers = [0,1,2,3,4,5,6,7,8,9]
+var charactersToInclude = [] //declare array
+var specialCharSplit = []
+var numCharInc = []
+var lowCharInc = []
+var upCharInc = []
 
-// Function to prompt user for password options
-getPasswordOptions()
+
 
 function getPasswordOptions() {
+
 numOfCharacters = prompt("How many characters would you like your password to contain?");
 
-while (numOfCharacters < 8 || numOfCharacters > 128 ) {
+  while (numOfCharacters < 8 || numOfCharacters > 128 ) {
   
-  if(numOfCharacters<8){
-     alert("Your password must contain at least 8 characters")
-     getPasswordOptions()
+    if(numOfCharacters<8){
+       alert("Your password must contain at least 8 characters")
+      getPasswordOptions()
     }
     else if(numOfCharacters>128){
-     alert ("Your password cannot contain more than 128 characters")
-     getPasswordOptions()
+       alert ("Your password cannot contain more than 128 characters")
+      getPasswordOptions()
     }
   }
+
+//alert if not number characters
+//alert if empty
+
+  includeSpecial = confirm("Click OK to include special characters")
+//console.log(includeSpecial)
+    if (includeSpecial === true) {
+      // console.log("includeSpecial === true")
+         for (let i = 0; i < specialCharacters.length; i++) {
+          charactersToInclude[i] = specialCharacters[i];
+ //         var popped = specialCharacters.pop();
+ //     charactersToInclude.unshift(popped);
+      }
+   }
+   includeNumeric = confirm("Click OK to include numeric characters");
+    if (includeNumeric === true) {
+      for (let j = 0; j < numericCharacters.length; j++) {
+        numCharInc[j] = numericCharacters[j];
+         }
+       // console.log(numCharInc);
+        charactersToInclude = charactersToInclude + numCharInc;
+       // console.log(charactersToInclude)
+   }
+   includeLower = confirm("Click OK to include lowercase characters");
+    if (includeLower === true) {
+       for (let k = 0; k < lowerCasedCharacters.length; k++) {
+         lowCharInc[k] = lowerCasedCharacters[k];
+          }
+        // console.log(numCharInc);
+         charactersToInclude = charactersToInclude + lowCharInc;
+        // console.log(charactersToInclude)
+      }
+    includeUpper = confirm("Click OK to include uppercase characters");
+    if (includeUpper === true) {
+      for (let l = 0; l < upperCasedCharacters.length; l++) {
+        upCharInc[l] = upperCasedCharacters[l];
+         }
+       // console.log(numCharInc);
+        charactersToInclude = charactersToInclude + upCharInc;
+        console.log(charactersToInclude)
+     }
 }
 
-//if number less than 5 alert - "Password length must be at least 8 characters" (no more than 128!)
-//alert if empty
-includeSpecial = confirm("Click OK to include special characters")
-includeNumeric = confirm("Click OK to include numeric characters")
-includeLower = confirm("Click OK to include lowercase characters")
-includeUpper = confirm("Click OK to include uppercase characters")
 //alert if user does not choose any characters
+
+
 
 //}
 //call the getPasswordOptions() function for testing
