@@ -94,11 +94,6 @@ var includeSpecial
 var includeNumeric
 var includeLower
 var includeUpper
-//var charactersToInclude = [] //declare array
-//var specialCharSplit = []
-//var numCharInc = []
-//var lowCharInc = []
-//var upCharInc = []
 var randomCharacter
 var randomPassword = []
 var randomChoice
@@ -118,16 +113,17 @@ numOfCharacters = prompt("How many characters would you like your password to co
   
     if(numOfCharacters<8){
        alert("Your password must contain at least 8 characters")
-      getPasswordOptions()
+       numOfCharacters = prompt("How many characters would you like your password to contain?");
+      //getPasswordOptions()
     }
     else if(numOfCharacters>128){
        alert ("Your password cannot contain more than 128 characters")
-      getPasswordOptions()
+       numOfCharacters = prompt("How many characters would you like your password to contain?");
+     // getPasswordOptions()
     }
-  }
-
+   }
+   
 //alert if not number characters
-//alert if empty
 
   includeSpecial = confirm("Click OK to include special characters")
 //console.log(includeSpecial)
@@ -150,6 +146,11 @@ numOfCharacters = prompt("How many characters would you like your password to co
     if (includeUpper === true) {
       arrayToInclude.unshift(4);
       //console.log(arrayToInclude);
+     }
+     if (arrayToInclude.length === 0) {
+      //alert if no groups of characters chosen
+      alert("You must choose at least one group of characters")
+      getPasswordOptions()
      }
 //alert if user does not choose any characters
 }
@@ -205,7 +206,7 @@ function writePassword() {
 
   passwordText.value = randomPassword;
 }
-//   password
+
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
