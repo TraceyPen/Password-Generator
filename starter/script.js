@@ -1,4 +1,5 @@
-// Array of special characters to be included in password
+// Array of special characters to be included in password - Array 1
+
 var specialCharacters = [
   '@',
   '%',
@@ -25,10 +26,10 @@ var specialCharacters = [
   '.'
 ];
 
-// Array of numeric characters to be included in password
+// Array of numeric characters to be included in password - Array 2
 var numericCharacters = ['0', '1', '2', '3', '4', '5', '6', '7', '8', '9'];
 
-// Array of lowercase characters to be included in password
+// Array of lowercase characters to be included in password - Array 3
 var lowerCasedCharacters = [
   'a',
   'b',
@@ -58,7 +59,7 @@ var lowerCasedCharacters = [
   'z'
 ];
 
-// Array of uppercase characters to be included in password
+// Array of uppercase characters to be included in password - Array 4
 var upperCasedCharacters = [
   'A',
   'B',
@@ -93,18 +94,26 @@ var includeSpecial
 var includeNumeric
 var includeLower
 var includeUpper
-var charactersToInclude = [] //declare array
-var specialCharSplit = []
-var numCharInc = []
-var lowCharInc = []
-var upCharInc = []
+//var charactersToInclude = [] //declare array
+//var specialCharSplit = []
+//var numCharInc = []
+//var lowCharInc = []
+//var upCharInc = []
+var randomCharacter
+var randomPassword = []
+var randomChoice
+var arrayToInclude = []
+var randomNum
 
 
+//call the getPasswordOptions() function for testing
+//getPasswordOptions()
 
 function getPasswordOptions() {
-
+  //ensure the arrayToInclude is empty from previous data
+  arrayToInclude=[];
+  //passwordText.value = "Please choose options";
 numOfCharacters = prompt("How many characters would you like your password to contain?");
-
   while (numOfCharacters < 8 || numOfCharacters > 128 ) {
   
     if(numOfCharacters<8){
@@ -123,71 +132,80 @@ numOfCharacters = prompt("How many characters would you like your password to co
   includeSpecial = confirm("Click OK to include special characters")
 //console.log(includeSpecial)
     if (includeSpecial === true) {
-      // console.log("includeSpecial === true")
-         for (let i = 0; i < specialCharacters.length; i++) {
-          charactersToInclude[i] = specialCharacters[i];
- //         var popped = specialCharacters.pop();
- //     charactersToInclude.unshift(popped);
-      }
-   }
+      arrayToInclude.unshift(1);
+    // console.log(arrayToInclude);
+    }
+   //curly bracket removed from here
    includeNumeric = confirm("Click OK to include numeric characters");
     if (includeNumeric === true) {
-      for (let j = 0; j < numericCharacters.length; j++) {
-        numCharInc[j] = numericCharacters[j];
-         }
-       // console.log(numCharInc);
-        charactersToInclude = charactersToInclude + numCharInc;
-       // console.log(charactersToInclude)
-   }
+      arrayToInclude.unshift(2);
+    // console.log(arrayToInclude);
+     }
    includeLower = confirm("Click OK to include lowercase characters");
     if (includeLower === true) {
-       for (let k = 0; k < lowerCasedCharacters.length; k++) {
-         lowCharInc[k] = lowerCasedCharacters[k];
-          }
-        // console.log(numCharInc);
-         charactersToInclude = charactersToInclude + lowCharInc;
-        // console.log(charactersToInclude)
-      }
+      arrayToInclude.unshift(3);
+    // console.log(arrayToInclude);
+     }
     includeUpper = confirm("Click OK to include uppercase characters");
     if (includeUpper === true) {
-      for (let l = 0; l < upperCasedCharacters.length; l++) {
-        upCharInc[l] = upperCasedCharacters[l];
-         }
-       // console.log(numCharInc);
-        charactersToInclude = charactersToInclude + upCharInc;
-        console.log(charactersToInclude)
+      arrayToInclude.unshift(4);
+      //console.log(arrayToInclude);
      }
-}
-
 //alert if user does not choose any characters
+}
+//console.log(arrayToInclude)
 
-
-
-//}
-//call the getPasswordOptions() function for testing
-getPasswordOptions()
 
 
 // Function for getting a random element from an array
-function getRandom(arr) {
+    function getRandom() {
+      //clear randomPassword array to start fresh after function is called
+         randomPassword = [];
+    for (let m = 0; m < numOfCharacters; m++) {
+      randomNum = Math.floor(Math.random() * arrayToInclude.length);
+     // console.log(arrayToInclude[randomNum]);
+      
+      if (arrayToInclude[randomNum] ==1 ) {
+          randomCharacter = specialCharacters[Math.floor(Math.random() * specialCharacters.length)]; 
+           //console.log(randomCharacter)
+           randomPassword = randomPassword + randomCharacter;
+          }
+      else if (arrayToInclude[randomNum] ==2 ) {
+         randomCharacter = numericCharacters[Math.floor(Math.random() * numericCharacters.length)]; 
+         //console.log(randomCharacter)
+         randomPassword = randomPassword + randomCharacter;
+         }
+      else if  (arrayToInclude[randomNum] ==3 ){
+         randomCharacter = lowerCasedCharacters[Math.floor(Math.random() * lowerCasedCharacters.length)]; 
+         //console.log(randomCharacter)
+         randomPassword = randomPassword + randomCharacter;
+         }
+       else if (arrayToInclude[randomNum] ==4 ){
+         randomCharacter = upperCasedCharacters[Math.floor(Math.random() * upperCasedCharacters.length)]; 
+         // console.log(randomCharacter)
+         randomPassword = randomPassword + randomCharacter;
+        }        
+      }
+      console.log(randomPassword);
+    }
 
-}
 
-// Function to generate password with user input
-function generatePassword() {
 
-}
 
 // Get references to the #generate element
 var generateBtn = document.querySelector('#generate');
 
 // Write password to the #password input
 function writePassword() {
-  var password = generatePassword();
+  getPasswordOptions()
+  getRandom()
+
+  var password = getRandom();
   var passwordText = document.querySelector('#password');
 
-  passwordText.value = password;
+  passwordText.value = randomPassword;
 }
+//   password
 
 // Add event listener to generate button
 generateBtn.addEventListener('click', writePassword);
