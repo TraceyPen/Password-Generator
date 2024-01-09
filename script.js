@@ -135,7 +135,7 @@ isNaNPresent = numberArray.includes(NaN)
 
 
 if (isNaNPresent === true) {
-  alert("Your must choose a number");
+  alert("You must choose a number");
   numOfCharacters = prompt("How many characters would you like your password to contain?");
 }
 
