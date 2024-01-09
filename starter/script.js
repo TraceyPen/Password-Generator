@@ -99,6 +99,8 @@ var randomPassword = []
 var randomChoice
 var arrayToInclude = []
 var randomNum
+arrayofCharacters = []
+var numTest
 
 
 //call the getPasswordOptions() function for testing
@@ -107,20 +109,23 @@ var randomNum
 function getPasswordOptions() {
   //ensure the arrayToInclude is empty from previous data
   arrayToInclude=[];
-  //passwordText.value = "Please choose options";
-numOfCharacters = prompt("How many characters would you like your password to contain?");
+  numOfCharacters = prompt("How many characters would you like your password to contain?");
+
+  arrayofCharacters = numOfCharacters.split("");
+  console.log(arrayofCharacters);
+  
+
+
   while (numOfCharacters < 8 || numOfCharacters > 128 ) {
   
     if(numOfCharacters<8){
        alert("Your password must contain at least 8 characters")
        numOfCharacters = prompt("How many characters would you like your password to contain?");
-      //getPasswordOptions()
-    }
+      }
     else if(numOfCharacters>128){
        alert ("Your password cannot contain more than 128 characters")
        numOfCharacters = prompt("How many characters would you like your password to contain?");
-     // getPasswordOptions()
-    }
+     }
    }
    
 //alert if not number characters
@@ -153,6 +158,7 @@ numOfCharacters = prompt("How many characters would you like your password to co
       getPasswordOptions()
      }
 //alert if user does not choose any characters
+//end of getPasswordOptions function
 }
 //console.log(arrayToInclude)
 
@@ -201,7 +207,7 @@ function writePassword() {
   getPasswordOptions()
   getRandom()
 
-  var password = getRandom();
+  //var password = getRandom();
   var passwordText = document.querySelector('#password');
 
   passwordText.value = randomPassword;
