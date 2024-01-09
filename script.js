@@ -117,7 +117,7 @@ function getPasswordOptions() {
   numOfCharacters = prompt("How many characters would you like your password to contain?");
 
   arrayofCharacters = numOfCharacters.split("");
-  console.log(arrayofCharacters);
+  //console.log(arrayofCharacters);
 //-----------------------------------------------------
 //convert the string data to numbers where possible. Non numbers become NAN
   
@@ -126,12 +126,12 @@ for (let i = 0; i < arrayofCharacters.length; i++)
      numberArray.push(parseInt(arrayofCharacters[i]));
 
  // Print the array of numbers
-console.log(numberArray);
+//console.log(numberArray);
 
 
 //Are there any instances of NaN indicating Not a Number?
 isNaNPresent = numberArray.includes(NaN)
-console.log(isNaNPresent)
+//console.log(isNaNPresent)
 
 
 if (isNaNPresent === true) {
@@ -139,23 +139,7 @@ if (isNaNPresent === true) {
   numOfCharacters = prompt("How many characters would you like your password to contain?");
 }
 
-//check that the charcters entered by the user contain only numbers
-
-//      let containsOnlyNumbers = true;
-//   for (let j = 0; j < numberArray.length; j++) {
-// console.log(typeof numberArray[j])
-
-    // if (typeof numberArray[j] === NaN) {
-    //   containsOnlyNumbers = false;
-    //     break;
-    // }
-    //   console.log(containsOnlyNumbers);
-  //}
-
 // ------------------------------------------
-
-
-
 
 
   while (numOfCharacters < 8 || numOfCharacters > 128 ) {
@@ -235,7 +219,7 @@ if (isNaNPresent === true) {
          randomPassword = randomPassword + randomCharacter;
         }        
       }
-         console.log(randomPassword);
+        // console.log(randomPassword);
     }
 
 
