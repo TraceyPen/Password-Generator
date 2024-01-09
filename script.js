@@ -89,31 +89,73 @@ var upperCasedCharacters = [
   'Z'
 ];
 
-var numOfCharacters
-var includeSpecial
-var includeNumeric
-var includeLower
-var includeUpper
-var randomCharacter
-var randomPassword = []
-var randomChoice
-var arrayToInclude = []
-var randomNum
-arrayofCharacters = []
-var numTest
+var numOfCharacters;
+var includeSpecial;
+var includeNumeric;
+var includeLower;
+var includeUpper;
+var randomCharacter;
+var randomPassword = [];
+var randomChoice;
+var arrayToInclude = [];
+var randomNum;
+arrayofCharacters = [];
+//var numTest;
+numberArray = [];
+onlyNumbers = [];
+var isNaNPresent;
 
 
 //call the getPasswordOptions() function for testing
 //getPasswordOptions()
 
 function getPasswordOptions() {
-  //ensure the arrayToInclude is empty from previous data
+  //ensure the arrayToInclude and numberArray is empty from previous data
   arrayToInclude=[];
+  numberArray=[];
+  isNaNPresent = false;
   numOfCharacters = prompt("How many characters would you like your password to contain?");
 
   arrayofCharacters = numOfCharacters.split("");
   console.log(arrayofCharacters);
+//-----------------------------------------------------
+//convert the string data to numbers where possible. Non numbers become NAN
   
+
+for (let i = 0; i < arrayofCharacters.length; i++)
+     numberArray.push(parseInt(arrayofCharacters[i]));
+
+ // Print the array of numbers
+console.log(numberArray);
+
+
+//Are there any instances of NaN indicating Not a Number?
+isNaNPresent = numberArray.includes(NaN)
+console.log(isNaNPresent)
+
+
+if (isNaNPresent === true) {
+  alert("Your must choose a number");
+  numOfCharacters = prompt("How many characters would you like your password to contain?");
+}
+
+//check that the charcters entered by the user contain only numbers
+
+//      let containsOnlyNumbers = true;
+//   for (let j = 0; j < numberArray.length; j++) {
+// console.log(typeof numberArray[j])
+
+    // if (typeof numberArray[j] === NaN) {
+    //   containsOnlyNumbers = false;
+    //     break;
+    // }
+    //   console.log(containsOnlyNumbers);
+  //}
+
+// ------------------------------------------
+
+
+
 
 
   while (numOfCharacters < 8 || numOfCharacters > 128 ) {
@@ -193,7 +235,7 @@ function getPasswordOptions() {
          randomPassword = randomPassword + randomCharacter;
         }        
       }
-      console.log(randomPassword);
+         console.log(randomPassword);
     }
 
 
