@@ -5,7 +5,7 @@ Link to deployed project:
 
 
 
-Description: This project creates a random password from a users selection of available arrays.
+Description: This project creates a random password from a user's selection of available arrays.
 
 Clicking the button initiates the code.  The user is asked how many characters they would like their password to contain and vaidation ensures that the number that they select is greater than 8 and less than 128.
 
@@ -15,7 +15,7 @@ The random password generated then prints to the webpage.
 
 Installation: N/A
 
-Usage: Click the button to initiate the code that will prompt you to enter how many characters that you would like your password to contain and which arrays of characters you would like to include.  You can click the button again to generate another password.
+Usage: Clicking the button initiates the code that will prompt the user to enter how many characters they would like their password to contain and which arrays of characters they would like to include.  The user can click the button again to generate another password.
 
 Credits: EdX course materials and internet JavaScript tutorials and information including W3 Schools web pages.
 
