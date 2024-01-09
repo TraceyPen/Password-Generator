@@ -4,7 +4,7 @@ Generate a password from your choice of characters
 Link to deployed project:
 https://traceypen.github.io/Password-Generator/
 
-
+![image](https://github.com/TraceyPen/Password-Generator/assets/152005789/f027f3cf-0c0f-4b19-bff4-66c417c469c1)
 
 
 Description: This project creates a random password from a user's selection of available arrays.
