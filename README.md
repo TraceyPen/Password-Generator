@@ -2,6 +2,8 @@
 Generate a password from your choice of characters
 
 Link to deployed project:
+https://traceypen.github.io/Password-Generator/
+
 
 
 
